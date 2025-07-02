@@ -130,8 +130,12 @@ def iterate_pagerank(corpus, damping_factor):
                     continue
                 
                 links = corpus[p]
+                if len(links) == 0:
+                    links = corpus.keys()
+                    
                 if page in links:
                     summation += pageRanks[p] / len(links)
+                
             newRank += damping_factor * summation
 
             if newRank <= pageRanks[page] + 0.001 and newRank >= pageRanks[page] - 0.001:
