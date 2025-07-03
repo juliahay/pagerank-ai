@@ -126,9 +126,6 @@ def iterate_pagerank(corpus, damping_factor):
             newRank = (1 - damping_factor) / len(corpus)
             summation = 0
             for p in corpus.keys():
-                #if p == page:
-                    #continue
-                
                 links = corpus[p]
                 if len(links) == 0:
                     links = corpus.keys()
